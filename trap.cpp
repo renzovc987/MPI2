@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
   int rank_p = (my_rank + 1) % 3;
   while (contador < limite) {
     if (my_rank == contador % 3) {
-      contador++;
+      contador = 0;
       MPI_Send(&contador, 1, MPI_INT, rank_p, 0, MPI_COMM_WORLD);
       printf("%d Contador enviado e incrementado %d a %d\n",
              my_rank, contador, rank_p);
